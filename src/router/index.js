@@ -1,12 +1,12 @@
 import {createRouter, createWebHistory} from 'vue-router';
-import CharacterList from "../components/characters/CharacterList.vue"
+import CharacterListNew from "../components/characters/CharacterListNew.vue"
 import CharacterCard from "../components/characters/CharacterCard.vue"
 
 const routes = [
     {
         path: '/',
         name: 'CharacterList',
-        component: CharacterList
+        component: CharacterListNew
     },
     {
         path: '/Character/:id',

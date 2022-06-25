@@ -22,7 +22,7 @@
 export default {
   name: "CharacterCard",
   props: {
-    character: Object,
+    character: Object
   },
 };
 </script>

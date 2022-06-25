@@ -35,6 +35,7 @@ export default {
       const res = await axios.get(url);
       const data = res.data;
       this.characters = data;
+      console.log(this.characters);
       /*this.urls.prev = previous;
       this.urls.next = next;
       document.getElementById("btnPrev").disabled = !this.urls.prev;
