@@ -82,7 +82,7 @@ export default {
                 this.$router.push('/editar/' + id);
             },
     agregar() {
-        this.$router.push('/nuevo');
+        this.$router.push('/Agregar');
     },
   },
   async created() {

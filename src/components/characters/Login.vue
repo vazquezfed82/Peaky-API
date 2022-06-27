@@ -47,7 +47,7 @@
           "password": this.password
         };
         axios.post('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users', json).then( data =>{
-          if(data.data.status == "ok"){
+          if(data.data.status == "200"){
             this.$router.push('personajes');
           }else{
             this.error = true;
