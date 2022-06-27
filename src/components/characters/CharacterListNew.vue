@@ -1,7 +1,10 @@
 <template>
-   <div class="container">
+    <Navbar />
+   <div class="container botonAgregarIzquierda">
         <h1> Listar Personajes: {{ miNombreApp }}</h1>
-        <hr/>                 
+        <hr/>
+        <button class="btn btn-primary" v-on:click="agregar()">Agregar Personaje</button>
+        <br><br>
         <div class="row justify-content-center"> 
             <div class ="col-4">
                 <div class="mb-3">
@@ -32,7 +35,8 @@
                        <p class="card-text">Nombre: {{personaje.name}}</p>
                        <p class="card-text">F.Nacimiento: {{personaje.birthDate}}</p>
                        <p class="card-text">Actor: {{personaje.playedBy}}</p>
-                       <button @click="seleccionar(personaje)">Mostrar</button>
+                       <button class="btn btn-dark margen" @click="seleccionar(personaje)">Mostrar</button>
+                       <button class="btn btn-primary" @click="editar(personaje)">Editar</button>
                    </div>
                </div>
            </div>  
@@ -51,11 +55,11 @@
 </template>
 
 <script>
-
+import Navbar from "@/components/utils/Navbar.vue";
 export default {
   name: "CharacterListNew",
   components: {
-    //CharacterCard,
+    Navbar,
   },
   data() {
     return {
@@ -73,9 +77,13 @@ export default {
     seleccionar(elemento) {
                 console.log('Personaje Seleccionado:' + elemento.name)
                 this.personajeSeleccionado = elemento.name
-                
-            }
-    
+            },
+    editar(id) {
+                this.$router.push('/editar/' + id);
+            },
+    agregar() {
+        this.$router.push('/nuevo');
+    },
   },
   async created() {
             const response = await fetch(this.url)
@@ -108,3 +116,9 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+    .botonAgregarIzquierda {
+        text-align: left;
+    }
+</style>
