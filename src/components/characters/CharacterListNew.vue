@@ -73,6 +73,7 @@ export default {
     seleccionar(elemento) {
                 console.log('Personaje Seleccionado:' + elemento.name)
                 this.personajeSeleccionado = elemento.name
+                
             }
     
   },
