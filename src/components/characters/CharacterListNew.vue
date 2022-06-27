@@ -36,7 +36,7 @@
                        <p class="card-text">F.Nacimiento: {{personaje.birthDate}}</p>
                        <p class="card-text">Actor: {{personaje.playedBy}}</p>
                        <button class="btn btn-dark margen" @click="seleccionar(personaje)">Mostrar</button>
-                       <button class="btn btn-primary" @click="editar(personaje)">Editar</button>
+                       <button class="btn btn-primary" @click="editar(personaje.id)">Editar</button>
                    </div>
                </div>
            </div>  

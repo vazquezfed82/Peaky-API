@@ -6,7 +6,7 @@
                 <div class="form-group left">
                     <label for="" class="control-label col-sm-2">Nombre</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="nombre" id="nombre" v-model="form.name">
+                        <input type="text" class="form-control" name="name" id="name" v-model="form.name">
                     </div>
                 </div>
                 <div class="form-group left">
@@ -64,9 +64,19 @@ export default {
             }
         }
     },
+    mounted:function(){
+        this.form.characterId = this.$route.params.id;
+        axios.get('https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters?id='+ this.form.characterId).then(datos => {
+            this.form.name = datos.data[0].name;
+            this.form.birthDate = datos.data[0].birthDate;
+            this.form.picture = datos.data[0].picture;
+            this.form.alive = datos.data[0].alive;
+            this.form.playedBy = datos.data[0].playedBy;
+        })
+    },
     methods: {
         editar(){
-            axios.put("https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters", this.form).then(data => {
+            axios.put('https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters', this.form).then(data => {
                     console.log(data);
             })
         },
@@ -82,16 +92,6 @@ export default {
                 this.$router.push("/personajes");
             });
         }
-    },
-    mounted:function(){
-        this.form.characterId = this.$route.params.id;
-        axios.get('https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters?id='+ this.form.characterId).then(datos => {
-            this.form.name = datos.data.name;
-            this.form.birthDate = datos.data[0].birthDate;
-            this.form.picture = datos.data[0].picture;
-            this.form.alive = datos.data[0].alive;
-            this.form.playedBy = datos.data[0].playedBy;
-        })
     }
 }
 </script>
