@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Navbar />
             <div class="container">
                 <form action="" class="form-horizontal">
                     <div class="form-group left">

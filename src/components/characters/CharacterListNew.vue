@@ -1,5 +1,4 @@
 <template>
-    <Navbar />
    <div class="container botonAgregarIzquierda">
         <h1> Listar Personajes: {{ miNombreApp }}</h1>
         <hr/>
