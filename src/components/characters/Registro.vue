@@ -5,7 +5,7 @@
 
         <!-- Icon -->
             <div class="fadeIn first">
-                <img src="@/assets/peaky-blinders.png" id="icon" alt="User Icon" />
+                <img src="@/assets/peaky-blinders-logo2.png" id="icon" alt="User Icon" />
             </div>
 
         <!-- Registrarse Form -->
