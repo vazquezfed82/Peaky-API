@@ -4,6 +4,7 @@ import CharacterCard from "../components/characters/CharacterCard.vue"
 import Login from "../components/characters/Login.vue";
 import Editar from "../components/characters/Editar.vue"
 import Agregar from "../components/characters/Agregar.vue"
+import Registro from "../components/characters/Registro.vue"
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: '/Agregar',
         name: 'Agregar',
         component: Agregar
+    },
+    {
+        path: '/Registrarse',
+        name: 'Registrarse',
+        component: Registro
     }
 ];
 
