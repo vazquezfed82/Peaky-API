@@ -5,7 +5,7 @@
 
         <!-- Icon -->
             <div class="fadeIn first">
-                <img src="@/assets/peaky-blinders-logo2.png" id="icon" alt="User Icon" />
+                <img src="@/assets/peaky-blinders.png" id="icon" alt="User Icon" />
             </div>
 
         <!-- Registrarse Form -->
@@ -27,9 +27,6 @@
  import axios from 'axios';
  export default {
     name: 'Login',
-    components: {
-        
-    },
     data: function(){
       return {
         usuario: "",
@@ -40,23 +37,36 @@
       }
     },
     methods:{
-        registrarse(){
-            let json = {
+      async registrarse(){
+        let json = {
             "usuario": this.usuario,
             "password": this.password,
             "admin": this.admin
-            };
-            Users = axios.get('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users').then(response => (this.users = response.data))
-            const usuario = Users.find(u => u.usuario == this.usuario);
-            if (!usuario) {
-                axios.post('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users', json).then( data =>{
-                this.$router.push('/');
-                })
-                console.log("Usuario registrado con éxito!");
-            }else{
-                console.log("El usuario ya existe");
-            }
+        };
+        
+        const response = await fetch('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users')
+            const data = await response.json();
+            this.usuarios = data;
+          if(!this.usuarioCorrecto()){
+            axios.post('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users', json).then( data =>{
+              this.$router.push('/');
+            })
+            console.log("Usuario registrado con éxito!");
+          }else{
+            this.error = true;
+            this.error_msg = 'Usuario ya existente';
+           }
+         },
+
+      usuarioCorrecto() {
+        let validado = false
+        const usuario = this.usuarios.find(u => u.usuario == this.usuario)
+
+        if (usuario){
+          validado = true;
         }
+        return validado
+      }
     }
  }
  </script>
