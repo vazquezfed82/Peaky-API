@@ -76,7 +76,8 @@ export default {
     },
     methods: {
         editar(){
-            axios.put('https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters', this.form).then(data => {
+            const characterId = this.form.characterId;
+            axios.put(`https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters/${characterId}`, this.form).then(data => {
                     console.log(data);
             })
         },
@@ -84,10 +85,11 @@ export default {
             this.$router.push("/personajes");
         },
         eliminar(){
+            const characterId = this.form.characterId
             var enviar = {
-                "characterId": this.form.characterId
+                "characterId": characterId
             };
-            axios.delete("https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters", { headers: enviar}).then(data => {
+            axios.delete(`https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters/${enviar.characterId}`, { headers: enviar}).then(data => {
                 console.log(data);
                 this.$router.push("/personajes");
             });
