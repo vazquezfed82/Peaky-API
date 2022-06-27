@@ -46,6 +46,7 @@
             "password": this.password,
             "admin": this.admin
             };
+            Users = axios.get('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users').then(response => (this.users = response.data))
             const usuario = Users.find(u => u.usuario == this.usuario);
             if (!usuario) {
                 axios.post('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users', json).then( data =>{
