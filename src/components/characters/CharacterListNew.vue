@@ -21,6 +21,7 @@
         </div>
         <div class="mb-3">   
           <h1> Cantidad: {{cantidadPersonajesFiltrados }} </h1>
+          <h1> Seleccionado: {{personajeSeleccionado}}  </h1>
         </div>
         <div class="row">
             <div v-for="personaje in filtrarPersonajes" :key="personaje.id" class="col-md-3">
@@ -31,6 +32,7 @@
                        <p class="card-text">Nombre: {{personaje.name}}</p>
                        <p class="card-text">F.Nacimiento: {{personaje.birthDate}}</p>
                        <p class="card-text">Actor: {{personaje.playedBy}}</p>
+                       <button @click="seleccionar(personaje)">Mostrar</button>
                    </div>
                </div>
            </div>  
@@ -62,11 +64,16 @@ export default {
        charName: '',
        actorName: '',
        url:'https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters',
-       cnatidadPersonajes: 0
+       cnatidadPersonajes: 0,
+       personajeSeleccionado : ''
 
     };
   },
   methods: {
+    seleccionar(elemento) {
+                console.log('Personaje Seleccionado:' + elemento.name)
+                this.personajeSeleccionado = elemento.name
+            }
     
   },
   async created() {
@@ -78,6 +85,8 @@ export default {
     computed: {
         filtrarPersonajes : function() {
             let filtrados = this.personajes;
+            
+
             if (this.charName) {
                 console.log('Hay un valor en Charname, filtro',this.charName)
                  filtrados = filtrados.filter(p => p.name.toLowerCase().includes(this.charName.toLowerCase()))
@@ -88,8 +97,7 @@ export default {
                 filtrados = filtrados.filter(p => p.playedBy.toLowerCase().includes(this.actorName.toLowerCase()))
             }
 
-           
-            
+                       
             return filtrados;
         },
         cantidadPersonajesFiltrados() {
