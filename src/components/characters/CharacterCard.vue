@@ -1,21 +1,14 @@
 <template>
-  <div class="card" style="width: 18rem">
-    <img :src="character.picture" alt="..." class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">
-        <b>{{ character.name }}</b>
-      </h5>
-      <div class="d-flex justify-content-between">
-        <span>{{ character.name }}</span>
-      </div>
-      <div class="d-flex justify-content-between">
-        <span>{{}}</span>
-      </div>
-      <div class="d-flex justify-content-between">
-        <span>{{}}</span>
-      </div>
-    </div>
-  </div>
+ <div class="card">
+                   <img :src="personaje.picture" class="card-img-top" alt="imagen de personaje.name">
+                   <div class="card-body">
+                       <h5 class="card-title">{{personaje.name}}</h5>
+                       <p class="card-text">Nombre: {{personaje.name}}</p>
+                       <p class="card-text">F.Nacimiento: {{personaje.birthDate}}</p>
+                       <p class="card-text">Actor: {{personaje.playedBy}}</p>
+                       <button @click="seleccionar(personaje)">Mostrar</button>
+                   </div>
+               </div>
 </template>
 
 <script>
