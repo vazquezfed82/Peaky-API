@@ -7,9 +7,6 @@
           <li class="nav-item">
             <router-link class="nav-link active" to="/">Personajes</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/info">Informacion adicional</router-link>
-          </li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
- <div class="card">
+ <div class="card" style="width: 5rem;">
                    <img :src="personaje.picture" class="card-img-top" alt="imagen de personaje.name">
                    <div class="card-body">
                        <h5 class="card-title">{{personaje.name}}</h5>
