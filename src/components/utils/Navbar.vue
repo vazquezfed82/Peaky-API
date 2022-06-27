@@ -5,7 +5,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link active" to="/">Login</router-link>
+            <router-link class="nav-link active" to="/Registrarse">Registro</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link active" to="/Personajes">Personajes</router-link>
