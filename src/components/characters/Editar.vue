@@ -78,6 +78,7 @@ export default {
             const characterId = this.form.characterId;
             axios.put(`https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters/${characterId}`, this.form).then(data => {
                     console.log(data);
+                    this.$router.push("/personajes");
             })
         },
         salir(){
