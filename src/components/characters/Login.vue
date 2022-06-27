@@ -26,7 +26,7 @@
 </template>
 
  <script>
- import axios from 'axios';
+
  export default {
     name: 'Login',
     components: {
@@ -38,25 +38,42 @@
         password: "",
         error: false,
         error_msg: "",
+        
       }
     },
     methods:{
-      login(){
-        let json = {
-          "usuario": this.usuario,
-          "password": this.password
-        };
-        axios.post('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users', json).then( data =>{
-          if(data.data.status == "200"){
-            this.$router.push('personajes');
-          }else{
-            this.error = true;
-            this.error_msg = data.data.result.error_msg;
+      async login(){
+        
+        const response = await fetch('https://6282cdc538279cef71cd15d8.mockapi.io/api/Users')
+            const data = await response.json();
+           this.usuarios = data;
+            console.log(this.usuario)
+            console.log(this.password)
+            console.log(this.usuarios)
+            
+          if(this.usuarioCorrecto()){
+           this.$router.push('/personajes');
           }
-        })
+          else{
+            this.error = true;
+            this.error_msg = 'datos incorrectos';
+           }
+         },
+
+      usuarioCorrecto() {
+        let validado = false
+        const usuario = this.usuarios.find(u => u.usuario == this.usuario && u.password == this.password)
+
+        if (usuario){
+          validado = true;
+        }
+        return validado
+      }
+          
+
       }
     }
- }
+ 
  </script>
 
 
