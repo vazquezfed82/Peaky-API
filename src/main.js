@@ -6,5 +6,5 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 //import {IconsPlugin, BootstrapVue} from 'bootstrap-vue'
 import VueAxios from 'vue-axios'
-//Preguntar por qué no funciona -> BootstrapVue, IconsPlugin
+//Preguntar por qué razon no funciona -> BootstrapVue, IconsPlugin
 createApp(App).use(router, VueAxios, axios).mount('#app')

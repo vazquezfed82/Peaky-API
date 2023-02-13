@@ -2,7 +2,7 @@
    <div class="container botonAgregarIzquierda">
         <h1> Listar Personajes: {{ miNombreApp }}</h1>
         <hr/>
-        <button class="btn btn-primary" v-on:click="agregar()">Agregar Personaje</button>
+        <button class="btn btn-primary" v-show="admin" v-on:click="agregar()">Agregar Personaje</button>
         <br><br>
         <div class="row justify-content-center"> 
             <div class ="col-4">
@@ -35,7 +35,7 @@
                        <p class="card-text">F.Nacimiento: {{personaje.birthDate}}</p>
                        <p class="card-text">Actor: {{personaje.playedBy}}</p>
                        <button class="btn btn-dark margen" @click="seleccionar(personaje)">Mostrar</button>
-                       <button class="btn btn-primary" @click="editar(personaje.id)">Editar</button>
+                       <button class="btn btn-primary" v-show="admin" @click="editar(personaje.id)">Editar</button>
                    </div>
                </div>
            </div>  
@@ -68,7 +68,8 @@ export default {
        actorName: '',
        url:'https://6282cdc538279cef71cd15d8.mockapi.io/api/Characters',
        cnatidadPersonajes: 0,
-       personajeSeleccionado : ''
+       personajeSeleccionado : '',
+       admin: Boolean
 
     };
   },
@@ -89,6 +90,7 @@ export default {
             const data = await response.json();
             console.log(data);
             this.personajes = data           
+            this.admin = localStorage.admin
     },
     computed: {
         filtrarPersonajes : function() {
