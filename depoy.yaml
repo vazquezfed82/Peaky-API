@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Peaky-API
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Peaky-API
+  template:
+    metadata:
+      labels:
+        app: Peaky-API
+    spec:
+      containers:
+      - name: Peaky-API
+        image: imagesakstest.azurecr.io/peakyapi
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
