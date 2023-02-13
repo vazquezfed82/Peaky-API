@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: peakyapi
-        image: imagesakstest.azurecr.io/vazquezfed82/peaky-api
+        image: imagesakstest.azurecr.io/vazquezfed82/peaky-api:14
         resources:
           limits:
             memory: "128Mi"
