@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: peakyapi
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: peakyapi
