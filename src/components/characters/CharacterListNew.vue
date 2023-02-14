@@ -1,6 +1,6 @@
 <template>
    <div class="container botonAgregarIzquierda">
-        <h1> Listar Personajes :D:D:D: {{ miNombreApp }}</h1>
+        <h1> Listar Personajes  {{ miNombreApp }}</h1>
         <hr/>
         <button class="btn btn-primary" v-show="admin" v-on:click="agregar()">Agregar Personaje</button>
         <br><br>
